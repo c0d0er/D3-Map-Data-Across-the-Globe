@@ -1,10 +1,9 @@
 body {
   background-color:  #006994;
-}
-
+  }
 
 .tooltip1 {
-
+  display: none;// fix the problem of starting page then comes bar on top of the page, this bar is the tooltip, so much hide this tooltip in the beginning;
   padding: 5px;
   background-color: white;
   border-radius: 2px;
