@@ -2,6 +2,7 @@ body {
   background-color: #006994; }
 
 .tooltip1 {
+  display: none;
   padding: 5px;
   background-color: white;
   border-radius: 2px;
