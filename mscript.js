@@ -15,11 +15,10 @@ class MapData extends React.Component{
                   //.classed("svg-content-responsive", true)//class to make it responsive; no need;
                   //.attr('width', w)//cannot use this if set responsive/resize;
                   //.attr('height', h)//cannot use this if set responsive/resize;
-                  .call(d3.zoom().on("zoom", ()=> {
-                    d3.event.transform.x = Math.min(0, Math.max(d3.event.transform.x, w - w * d3.event.transform.k));
-                    d3.event.transform.y = Math.min(0, Math.max(d3.event.transform.y, h - h * d3.event.transform.k));
-                    svg.attr("transform", d3.event.transform);
+                  .call(d3.zoom().on("zoom", function () {
+                    svg.attr("transform", d3.event.transform)
                     }))
+                  .append('g')
                   ;
 
     const projection = d3.geoMercator()
@@ -55,7 +54,7 @@ class MapData extends React.Component{
                         .range([3, 50])
                         .clamp(true);
         let isHovered = false;
-        let  range = 718750/2/2;// to set up bigger mass's circle opacity to 0.5 which is over this range, otherwise opacity is 1; 
+        let  range = 18000;// to set up bigger mass's circle opacity to 0.5 which is over this range, otherwise opacity is 1; 
         svg.append('g')
            .selectAll('circle')
            .data(meteoData)
@@ -89,13 +88,15 @@ class MapData extends React.Component{
                   '<br>Location: '+ location)
                    .style('left', x1)
                    .style('top', y1)
+                   .style('opacity', 0.8)
                    .style('display', 'block')
                    .style('position', 'absolute');
               })
             })
            .on('mouseout', function(d) {
               isHovered=false;
-              div.style('display', 'none');
+              div
+                 .style('display', 'none');
 
               d3.select(this)
                 .attr('r', d => d.properties.mass ? scale(parseInt(d.properties.mass)) : scale(0));
