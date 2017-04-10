@@ -75,7 +75,7 @@ class MapData extends React.Component{
 
               let lat=d.properties.reclat;
               let long=d.properties.reclong;
-              let goUrl='http://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&sensor=true';
+              let goUrl='https://maps.googleapis.com/maps/api/geocode/json?latlng='+lat+','+long+'&sensor=true';
               let x1=(d3.event.pageX+32) + 'px';
               let y1=(d3.event.pageY-90) + 'px';
 
