@@ -1,5 +1,5 @@
 ## D3-Map-Data-Across-the-Globe
-#### Check it out [here](https://c0d0er.github.io/D3-Map-Data-Across-the-Globe/)
+#### Check it out [here](https://c0d0er.github.io/Meteorites-Map-Data-Across-the-Globe/)
 
 #### Fulfill the below user stories:
 - User Story: I can see where all Meteorites landed on a world map.
