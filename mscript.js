@@ -29,7 +29,7 @@ class MapData extends React.Component{
                    .projection(projection);
         
     //get map;
-    $.getJSON("https://d3js.org/world-50m.v1.json", data=>{
+    $.getJSON("https://raw.githubusercontent.com/c0d0er/D3-Map-Data-Across-the-Globe/master/worldMap.json", data=>{
       svg.append('g')
          .selectAll('path')
          .data(topojson.feature(data, data.objects.countries).features)
@@ -40,7 +40,7 @@ class MapData extends React.Component{
          .attr('d', path);
 
          //get meteorites;
-      $.getJSON("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/meteorite-strike-data.json", data=>{
+      $.getJSON("https://raw.githubusercontent.com/c0d0er/D3-Map-Data-Across-the-Globe/master/meteorites.json", data=>{
         
         const meteoData=data.features;
         meteoData.sort((a,b)=>{
