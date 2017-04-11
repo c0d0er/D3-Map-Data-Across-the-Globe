@@ -38,13 +38,15 @@ class MapData extends React.Component{
          .attr('fill', '#71945A')
          .attr('stroke', 'white')
          .attr('d', path);
-         
-         
+
          //get meteorites;
       $.getJSON("https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/meteorite-strike-data.json", data=>{
         
         const meteoData=data.features;
-        console.log(meteoData)
+        meteoData.sort((a,b)=>{
+          return b.properties.mass-a.properties.mass;
+        })
+
         const hueScale = d3.scaleLinear()
                            .domain([0, 5000000])
                         .range([0, 5000000])
@@ -95,8 +97,7 @@ class MapData extends React.Component{
             })
            .on('mouseout', function(d) {
               isHovered=false;
-              div
-                 .style('display', 'none');
+              div.style('display', 'none');
 
               d3.select(this)
                 .attr('r', d => d.properties.mass ? scale(parseInt(d.properties.mass)) : scale(0));
